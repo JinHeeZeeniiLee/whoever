@@ -20,12 +20,11 @@ export const Menu_icon = styled.i`
   text-shadow: 2px 2px 2px gray;
 `;
 
-export const Header_button_container = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 30px;
-  flex: 2;
-`;
+// export const Header_button_container = styled.div`
+//   display: inline;
+//   padding-bottom: 30px;
+//   flex: 2;
+// `;
 
 export const Logo = styled.div`
   font-family: 'Mikado';

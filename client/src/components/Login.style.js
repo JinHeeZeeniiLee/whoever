@@ -25,10 +25,10 @@ export const SignupQ = styled.div`
 export const LoginModalContainer = styled.div`
   height: 15rem;
   text-align: center;
-  margin: 120px auto;
 `;
 
 export const LoginModalBtn = styled.button.attrs({type: 'button'})`
+margin-top: 122px;
 background: #fffffc;
 border: solid 5px #ffad4999;
 border-radius: 15px;
@@ -39,7 +39,6 @@ box-shadow: gray 2px 2px 2px;
 padding: 10px;
 min-width: 100px;
 text-align-last: center;
-margin-top: 38px;
 font-family: 'Mikado';
 margin-right: 40px;
 
