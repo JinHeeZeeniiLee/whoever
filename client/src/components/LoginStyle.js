@@ -28,42 +28,14 @@ export const LoginModalContainer = styled.div`
   margin: 120px auto;
 `;
 
-export const LoginModalBtn = styled.button.attrs({type: 'button'})`
-background: #fffffc;
-border: solid 5px #ffad4999;
-border-radius: 15px;
-height: 55px;
-cursor: pointer;
-transition: 300ms ease all;
-box-shadow: gray 2px 2px 2px;
-padding: 10px;
-min-width: 100px;
-text-align-last: center;
-margin-top: 38px;
-font-family: 'Mikado';
-margin-right: 40px;
-
-&:hover {
-  box-shadow: gray 6px 6px 6px;
-}
-
-&:before,
-&:after {
-  content: '';
-  position: absolute;
-  width: 0;
-  transition: ease all;
-}
-
-&:hover:before,
-&:hover:after {
-  width: 100%;
-  transition: ease all;
-}
-
-&:active {
-  box-shadow: none;
-}
+export const LoginModalBtn = styled.button`
+  background-color: #ffad4f;
+  text-decoration: none;
+  border: solid 2px white;
+  padding: 20px;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
 `;
 
 export const LoginBtn = styled.button`

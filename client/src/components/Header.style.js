@@ -37,7 +37,7 @@ export const Logo = styled.div`
   margin-right: 10px;
 `;
 
-export const Loginbutton = styled.span`
+export const Loginbutton = styled.button.attrs({type: 'button'})`
   background: #fffffc;
   border: solid 5px #ffad4999;
   border-radius: 15px;
