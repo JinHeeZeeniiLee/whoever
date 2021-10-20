@@ -1,100 +1,91 @@
-import React, {useState} from "react";
+import React, {useEffect,useState} from "react";
+import axios from "axios";
+
+import {useForm} from 'react-hook-form';
+
+import { useHistory } from 'react-router-dom';
 
 import {Title, 
+  TitleDiv,
   Idtext, 
   Pwtext, 
   PwConfirmtext, 
   SignUpModalContainer,
   SignUpModalView,
-  EmailDiv,
-  EmailInput,
   SignUpModalBtn,
   JoinBtn,
   PwNotMatch,
   PwValidLenMatch,
+  CloseBtn,
   Id_Input,
   Pw_Input,
   Pw_ReInput,
-  AgreeCheck,
-  AgreeDiv,
   SignUpModalBackdrop} from './SignUp.style';
 
   const SignUp = () => {
-    const [id, setId] = useState('');
-    const [password, setPassword] = useState('');
-    const [passwordCheck, setPasswordCheck] = useState('');
-    const [passwordError, setPasswordError] = useState(false);
-    const [term, setTerm] = useState(false);
-    const [termError, setTermError] = useState(false);
+
+    const history = useHistory();
+
     const [isOpen, setIsOpen] = useState(false);
+    const [isVerified, setIsVerified] = useState(false);
     
+    const {
+      register,
+      handleSubmit,
+      formState: {errors},
+      watch
+    } = useForm({mode: 'onChange'});
+
+    const onSubmit = (data) => {
+      axios
+      .post(`${process.env.REACT_APP_API_URL}/signup`, {
+        userId: data.userId,
+        password: data.password,
+        email: data.email
+      })
+      .then((res) => {
+        history.push('/');
+      })
+      .catch((err) => alert('중복된 ID 입니다.'));
+    }
+
+    useEffect(() =>{
+      setIsVerified(watch('verifyPassword') === watch('password'));
+    }, [watch('verifyPassword'), watch('password')]);
     
     const openModalHandler = () => {
       setIsOpen(!isOpen);
     };
 
-    const obSubmit = (e) => {
-      e.preventDefault();
-
-      if(password !== passwordCheck) return setPasswordError(true);
-      if(!term) return setTermError(true);
-
-        console.log({
-          id,
-          password,
-          passwordCheck,
-          term
-        });
-
-        const onChangeId = (e) => {
-          setId(e.target.value)
-        }
-
-        const onChangePassword = (e) =>{
-          setPassword(e.target.value);
-        }
-
-        const onChangePasswordChk = (e) => {
-          setPasswordError(e.target.value !== password);
-          setPasswordCheck(e.target.value)
-        }
-
-        const onChangeTerm = (e) => {
-          setTermError(false);
-          setTerm(e.target.checked);
-        }
-    }
 
     return (
-      <SignUpModalContainer>
+      <SignUpModalContainer onSubmit={handleSubmit(onSubmit)}>
         <SignUpModalBtn onClick={openModalHandler}>
-        {isOpen === false ? 'Sign Up' : ''}
+        {isOpen === false ? '아직 계정이 없다면?' : '아직 계정이 없다면?'}
         </SignUpModalBtn>
         {isOpen === true ? (
           <SignUpModalBackdrop onClick={openModalHandler}>
             <SignUpModalView onClick={(e) => e.stopPropagation()}>
-            <span onClick={openModalHandler} className="close-btn">
+            <CloseBtn onClick={openModalHandler}>
                 &times;
-              </span>
+              </CloseBtn>
+              <TitleDiv>
             <Title>WHOEVER Sign Up</Title>
-            <Idtext>Id
-              <Id_Input onChange={(e)=>e.onChangeId()}/>
+            </TitleDiv>
+            <Idtext>Whoever ID
+              <Id_Input 
+              name="userId"
+              {...register('userId', {
+                pattern: /^[a-z0-9_-]{4,20}$/
+              })}
+              />
               </Idtext>
             <Pwtext>Password
-              <Pw_Input onChange={(e)=>e.onChangePassword}/>
-              {password.length < 8 ? <PwValidLenMatch>비밀번호는 8자 이상이여야 합니다.</PwValidLenMatch> : ''}
+              <Pw_Input />
             </Pwtext>
             <PwConfirmtext>Password Confirm
-              <Pw_ReInput onChange={(e)=>e.ChangePasswordChk}/>
-              {passwordError && <PwNotMatch> 비밀번호가 일치하지 않습니다.</PwNotMatch>}
+              <Pw_ReInput />
             </PwConfirmtext>
-            <EmailDiv>E-mail
-              <EmailInput/>
-            </EmailDiv>
-            <AgreeDiv>
-              <AgreeCheck name='user-term' value={term} onChange={(e)=>e.onChangeTerm}>WHOEVER 가입에 동의합니까?</AgreeCheck>
-              {termError && <div style={{color: 'red'}}>약관에 동의하셔야 합니다.</div>}
-            </AgreeDiv>
             <JoinBtn>Sign Up</JoinBtn>
             </SignUpModalView>
           </SignUpModalBackdrop>

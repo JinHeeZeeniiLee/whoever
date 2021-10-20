@@ -1,25 +1,40 @@
 import styled from "styled-components";
 
-export const Title = styled.h1`
-  font-size: 1.5em;
+export const Title = styled.div`
+  font-size: 27px;
   text-align: center;
-  color: white;
+  color: #ffad4f;
   font-family: 'mikado';
-  margin: 10px;
+  margin-right: 10px;
+  margin : 1px 0 0;
+  flex: 3 3 auto;
 `;
 
-export const Text = styled.div`
-  font-size: 20px;
-  color: white;
-  margin: 10px 0;
+export const TitleDiv = styled.div`
+  display: inline;
+  border-bottom: solid 5px #ffad4f;
+  margin: auto;
+  margin-top: 20px;
+  height: 30px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 25px;
+`
+
+export const IdText = styled.div`
+  font-size: 18px;
+  color: #ffad4f;
+  margin-right: 200px;
+  margin-top: 20px ;
+  margin-bottom: 10px;
+`;
+
+export const PwText = styled.div`
+  font-size: 18px;
+  color: #ffad4f;
+  margin-right: 220px;
   margin-top: 10px ;
-`;
-
-export const SignupQ = styled.div`
-  font-size: 15px;
-  text-align: middle 1cm;
-  color: white;
-  margin : 2.5px;
 `;
 
 export const LoginModalContainer = styled.div`
@@ -28,7 +43,7 @@ export const LoginModalContainer = styled.div`
 `;
 
 export const LoginModalBtn = styled.button.attrs({type: 'button'})`
-margin-top: 122px;
+margin-top: 95px;
 background: #fffffc;
 border: solid 5px #ffad4999;
 border-radius: 15px;
@@ -67,14 +82,15 @@ margin-right: 40px;
 
 export const LoginBtn = styled.button`
   background-color: #ffad4f;
+  font-size: 18px;
   text-decoration: none;
   border: solid 2px white;
-  padding: 20px;
+  padding:12px;
+  width: 300px;
   color: white;
-  border-radius: 30px;
   cursor: pointer;
   box-align: right auto;
-  margin: 10px;
+  margin-bottom: 10px;
   flex: 1 1 auto;
 `;
 
@@ -102,26 +118,56 @@ export const LoginModalBackdrop = styled.div`
   place-items: center;
 `;
 
+export const Id_Validation_Check = styled.div`
+  width: 300px;
+  margin-left: -40px;
+  padding: 5px;
+  color:red;
+`
+export const Pw_Validation_Check = styled.div`
+  width: 300px;
+  margin-left: -28px;
+  padding: 5px;
+  color:red;
+`
+
 export const Id_Input = styled.input.attrs({ type: 'text' })`
   margin-left: 3px;
-  width: 150px;
+  width: 300px;
   height:2em;
   flex: 1 1 auto;
+  padding-left: 1px;
 `
 export const Pw_Input = styled.input.attrs({ type: 'password' })`
-  margin: 10px;
-  width: 150px;
+  margin-left: 30px;
+  width: 300px;
   height: 2em;
+  padding-left: 1px;
+  margin-right: 20px;
+  margin: 10px 10px 10px 10px;
   flex: 1 1 auto;
+`
+
+export const CloseBtn = styled.span`
+  border-radius: 50px;
+  border: solid 1px #ffad4999;
+  margin-left: 328px;
+  cursor: pointer;
+  background-color: #ffad4f;
+  padding-bottom: 1px;
+  padding-left: 1px;
+  &:hover {
+  box-shadow: gray 2px 2px 2px;
+  }
 `
 
 export const LoginModalView = styled.div.attrs((props) => ({
   role: "dialog"
 }))`
   border-radius: 10px;
-  background-color: #ffad4f;
+  background-color: white;
   width: 350px;
-  height: 300px;
+  height: 380px;
 
   > div.clost.btn {
     margin-top: 15px;

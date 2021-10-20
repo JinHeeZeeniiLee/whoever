@@ -20,77 +20,70 @@ PwValidLenMatch
 */
 
 export const Title = styled.h1`
-  font-size: 1.5em;
+  font-size: 32px;
   text-align: center;
-  color: white;
+  color: #ffad4f;
+  font-family: 'mikado';
+  margin-right: 10px;
+  margin : 1px 0 0;
+  flex: 3 3 auto;
+  padding-bottom: 25px;
+`
+
+export const TitleDiv = styled.div`
+  display: inline;
+  border-bottom: solid 5px #ffad4f;
+  margin: auto;
+  margin-top: 20px;
+  height: 30px;
+  width: 350px;
+  display: flex;
+  align-items: center;
 `
 
 export const Idtext = styled.div`
-  font-size: 20px;
-  text-align: left;
-  color: white;
+  font-size: 17px;
+  color: #ffad4f;
+  margin: 10px 0;
+  margin-top: 20px ;
   `;
 
 export const Pwtext = styled.div`
-  font-size: 20px;
-  text-align: left;
-  color: white;
+  font-size: 18px;
+  color: #ffad4f;
+  margin: 10px 0 0 10px;
+  margin-top: 22px ;
   `;
 
 export const PwConfirmtext = styled.div`
-  font-size: 20px;
-  text-align: left;
-  color: white;
+  font-size: 16px;
+  color: #ffad4f;
+  margin: 0px 0;
+  margin-top: 15px ;
   `;
 
-export const PwNotMatch = styled.input.attrs({ type: 'password'})`
-font-size: 20px;
+export const PwNotMatch = styled.div`
+font-size: 15px;
 text-align: left;
-color: red;
+text-decoration-color: red;
 `;
 
-export const PwValidLenMatch = styled.input.attrs({type: 'password'})`
-font-size: 20px;
+export const PwValidLenMatch = styled.div`
+font-size: 15px;
 text-align: left;
-color: red;
+text-decoration-color: red;
 `;
 
-export const EmailInput = styled.input.attrs({ type: 'text'})`
-     max-width: 90%;
-     font-size: 35px;
-     border-top: none;
-     border-left: none;
-     border-right: none;
-     border-radius: 8px;
-     box-shadow: gray 2px 2px 2px;
-     transition: 600ms ease all;
-     padding: 5px;
-     padding-left: 10px;
-     font-family: 'MikadoBold_DEMO';
-     
-     `
-
-export const EmailDiv = styled.div`
-  display: flex;
-  text-align: center;
-  align-items: center;
-  border: solid 3px gray;
-  padding-top: 3vh;
-  padding-bottom: 3vh;
-  padding-left: 10px;
-  padding-right: 25px;
-  max-width: 120vw;
-  border-top: none;
-  `
-
-export const SignUpModalBtn = styled.button`
-  background-color: #ffad4f;
+export const SignUpModalBtn = styled.a`
+  background-color: white;
   text-decoration: none;
-  border: solid 2px white;
-  padding: 20px;
-  color: white;
-  border-radius: 30px;
+  color: #ffad4f;
   cursor: pointer;
+  transition: 300ms ease all;
+  min-width: 20px;
+  text-align-last: center;
+  margin: 3px 10px 90px 115px;
+  display: flex;
   `;
 
 export const JoinBtn = styled.button`
@@ -102,12 +95,13 @@ export const JoinBtn = styled.button`
   border-radius: 30px;
   cursor: pointer;
   box-align: right auto;
+  margin-top: 20px;
   `;
 
-export const SignUpModalContainer = styled.div`
+export const SignUpModalContainer = styled.a`
   height: 15rem;
   text-align: center;
-  margin: 120px auto;
+  margin-bottom: 10px;
   `;
 
 export const SignUpModalBackdrop = styled.div`
@@ -123,54 +117,66 @@ export const SignUpModalBackdrop = styled.div`
   `;
 
 export const Id_Input = styled.input.attrs({ type: 'text' })`
-  margin-left: 3px;
+  margin-left: 52px;
+  margin-top: 10px;
   width: 150px;
   height:2em;
   flex: 1 1 auto;
 `
 export const Pw_Input = styled.input.attrs({ type: 'password' })`
-  margin: 10px;
+  margin-left: 60px;
+  margin-top: 5px;
   width: 150px;
   height: 2em;
   flex: 1 1 auto;
 `
 
   export const Pw_ReInput = styled.input.attrs({ type: 'password' })`
-  margin: 10px;
+  margin-left: 20px;
+  margin-top: 5px;
   width: 150px;
   height: 2em;
   flex: 1 1 auto;
   `
-  export const AgreeDiv = styled.div`
-    display: inline-block;
-    vertical-align: middle;
-  `
-  export const Icon = styled.svg` 
-  fill: none; 
-  stroke: white; 
-  stroke-width: 2px; 
-  `;
+  
+  // export const AgreeDiv = styled.div`
+  //   display: inline-block;
+  //   vertical-align: middle;
+  // `
 
-  export const AgreeCheck = styled.div`
-  display: inline-block; 
-  width: 2rem; 
-  height: 2rem; 
-  border: ${props => props.checked ? 'none' : 'solid 0.1rem #dddddd'}; 
-  background: ${props => props.checked ? 'black' : 'white'}; 
-  border-radius: 0.4rem; 
-  transition: all 150ms; 
-  ${Icon} { 
-    visibility: ${props=>props.checked? 'visible': 'hidden'}; 
-  }`;
+  export const CloseBtn = styled.span`
+  border-radius: 50px;
+  border: solid 1px #ffad4999;
+  margin-left: 382px;
+  cursor: pointer;
+  background-color: #ffad4f;
+  padding-left: 1px;
+  margin-top: 50px;
+  &:hover {
+  box-shadow: gray 6px 6px 6px;
+  }
+`
+
+  // export const AgreeCheck = styled.div`
+  // display: inline-block; 
+  // width: 2rem; 
+  // height: 2rem; 
+  // border: ${props => props.checked ? 'none' : 'solid 0.1rem #dddddd'}; 
+  // background: ${props => props.checked ? 'black' : 'white'}; 
+  // border-radius: 0.4rem; 
+  // transition: all 150ms; 
+  // ${Icon} { 
+  //   visibility: ${props=>props.checked? 'visible': 'hidden'}; 
+  // }`;
 
 
 export const SignUpModalView = styled.div.attrs((props) => ({
     role: "dialog"
   }))`
     border-radius: 10px;
-    background-color: #ffad4f;
-    width: 300px;
-    height: 300px;
+    background-color: White;
+    width: 400px;
+    height: 420px;
     
     > div.clost.btn {
         margin-top: 10px;
