@@ -2,7 +2,6 @@ import {
   Headerdiv,
   Menu_icon,
   Logo,
-  Loginbutton,
   Header_button_container
 } from './Header.style';
 
@@ -12,9 +11,6 @@ import Login from './Login';
 const Header = ({ isLogin }) => {
 
   const [isOpen, setIsOpen] = useState(false);
-
-
-
 
   return (
     <Headerdiv>

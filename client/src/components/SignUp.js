@@ -20,6 +20,9 @@ import {Title,
   Id_Input,
   Pw_Input,
   Pw_ReInput,
+  Id_Input_Span,
+  Pw_All_Input_Span,
+  SignUp_div,
   SignUpModalBackdrop} from './SignUp.style';
 
   const SignUp = () => {
@@ -60,9 +63,11 @@ import {Title,
 
     return (
       <SignUpModalContainer onSubmit={handleSubmit(onSubmit)}>
+        
         <SignUpModalBtn onClick={openModalHandler}>
         {isOpen === false ? '아직 계정이 없다면?' : '아직 계정이 없다면?'}
         </SignUpModalBtn>
+        
         {isOpen === true ? (
           <SignUpModalBackdrop onClick={openModalHandler}>
             <SignUpModalView onClick={(e) => e.stopPropagation()}>
@@ -72,20 +77,23 @@ import {Title,
               <TitleDiv>
             <Title>WHOEVER Sign Up</Title>
             </TitleDiv>
-            <Idtext>Whoever ID
-              <Id_Input 
+            <Idtext>Whoever ID</Idtext>
+            <Id_Input_Span>
+            <Id_Input 
               name="userId"
               {...register('userId', {
                 pattern: /^[a-z0-9_-]{4,20}$/
               })}
               />
-              </Idtext>
-            <Pwtext>Password
+            </Id_Input_Span>
+            <Pwtext>Password</Pwtext>
+              <Pw_All_Input_Span>
               <Pw_Input />
-            </Pwtext>
-            <PwConfirmtext>Password Confirm
+              </Pw_All_Input_Span>
+            <PwConfirmtext>Password Confirm</PwConfirmtext>
+              <Pw_All_Input_Span>
               <Pw_ReInput />
-            </PwConfirmtext>
+              </Pw_All_Input_Span>
             <JoinBtn>Sign Up</JoinBtn>
             </SignUpModalView>
           </SignUpModalBackdrop>

@@ -42,25 +42,66 @@ export const TitleDiv = styled.div`
 `
 
 export const Idtext = styled.div`
-  font-size: 17px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 18px;
   color: #ffad4f;
-  margin: 10px 0;
+  margin-right: 200px;
   margin-top: 20px ;
+  margin-bottom: 10px;
+  margin-left: 30px;
   `;
 
 export const Pwtext = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   font-size: 18px;
   color: #ffad4f;
-  margin: 10px 0 0 10px;
-  margin-top: 22px ;
+  margin-right: 200px;
+  margin-top: 20px ;
+  margin-bottom: 10px;
+  margin-left: 30px;
   `;
 
 export const PwConfirmtext = styled.div`
-  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 18px;
   color: #ffad4f;
-  margin: 0px 0;
-  margin-top: 15px ;
+  margin-right: 200px;
+  margin-top: 20px ;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  
   `;
+
+export const Id_Input_Span = styled.span`
+  display: block;
+  position: relative;
+  width: 84%;
+  height: 41px;
+  border: solid 1px #dadada;
+  box-sizing: border-box;
+  padding: 1px 10px 10px 1.4px;
+  margin-left: 30px;
+`
+export const Pw_All_Input_Span = styled.span`
+  display: block;
+  position: relative;
+  width: 84%;
+  height: 41px;
+  border: solid 1px #dadada;
+  box-sizing: border-box;
+  padding: 1px 10px 10px 1.4px;
+  margin-left: 30px;
+
+  &:hover {
+    outline: 1px solid #ffad4f;
+  }
+`
 
 export const PwNotMatch = styled.div`
 font-size: 15px;
@@ -75,28 +116,28 @@ text-decoration-color: red;
 `;
 
 export const SignUpModalBtn = styled.a`
-  background-color: white;
-  text-decoration: none;
+  display: block;
   color: #ffad4f;
   cursor: pointer;
-  transition: 300ms ease all;
   min-width: 20px;
-  text-align-last: center;
-  margin: 3px 10px 90px 115px;
-  display: flex;
+  margin: 10px auto 15px auto;
+  font-family: 'twayair';
   `;
 
 export const JoinBtn = styled.button`
   background-color: #ffad4f;
+  font-size: 18px;
   text-decoration: none;
   border: solid 2px white;
-  padding: 20px;
+  padding:12px;
+  width: 300px;
   color: white;
-  border-radius: 30px;
   cursor: pointer;
-  box-align: right auto;
+  box-align: auto;
   margin-top: 20px;
+  flex: 1 1 auto;
   `;
+
 
 export const SignUpModalContainer = styled.a`
   height: 15rem;
@@ -117,26 +158,41 @@ export const SignUpModalBackdrop = styled.div`
   `;
 
 export const Id_Input = styled.input.attrs({ type: 'text' })`
-  margin-left: 52px;
-  margin-top: 10px;
-  width: 150px;
-  height:2em;
-  flex: 1 1 auto;
+  display: flex;
+  font-size: 17px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 288px;
+  height: 2.2em;
+  outline: none;
+  border: none;
+  padding: 0px 25px 0px 0px;
+  cursor: pointer;
 `
 export const Pw_Input = styled.input.attrs({ type: 'password' })`
-  margin-left: 60px;
-  margin-top: 5px;
-  width: 150px;
-  height: 2em;
-  flex: 1 1 auto;
+  display: flex;
+  font-size: 17px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 288px;
+  height: 2.2em;
+  outline: none;
+  border: none;
+  padding: 0px 25px 0px 0px;
+  cursor: pointer;
 `
 
   export const Pw_ReInput = styled.input.attrs({ type: 'password' })`
-  margin-left: 20px;
-  margin-top: 5px;
-  width: 150px;
-  height: 2em;
-  flex: 1 1 auto;
+  display: flex;
+  font-size: 17px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 288px;
+  height: 2.2em;
+  outline: none;
+  border: none;
+  padding: 0px 25px 0px 0px;
+  cursor: pointer;
   `
   
   // export const AgreeDiv = styled.div`
@@ -145,13 +201,16 @@ export const Pw_Input = styled.input.attrs({ type: 'password' })`
   // `
 
   export const CloseBtn = styled.span`
+  display: flex;
   border-radius: 50px;
   border: solid 1px #ffad4999;
-  margin-left: 382px;
   cursor: pointer;
   background-color: #ffad4f;
-  padding-left: 1px;
-  margin-top: 50px;
+  padding: 0px 0px 0px 1px;
+  margin: 1px 0 1px 382px;
+  width:18px;
+  align-items: end;
+
   &:hover {
   box-shadow: gray 6px 6px 6px;
   }
@@ -168,7 +227,6 @@ export const Pw_Input = styled.input.attrs({ type: 'password' })`
   // ${Icon} { 
   //   visibility: ${props=>props.checked? 'visible': 'hidden'}; 
   // }`;
-
 
 export const SignUpModalView = styled.div.attrs((props) => ({
     role: "dialog"

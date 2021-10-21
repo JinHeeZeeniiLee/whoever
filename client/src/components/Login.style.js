@@ -1,61 +1,86 @@
 import styled from "styled-components";
 
-export const Title = styled.div`
-  font-size: 27px;
-  text-align: center;
-  color: #ffad4f;
-  font-family: 'mikado';
-  margin-right: 10px;
-  margin : 1px 0 0;
-  flex: 3 3 auto;
+export const LoginModalView = styled.div.attrs((props) => ({
+  role: "dialog"
+}))`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  background-color: white;
+  width: 350px;
+  height: 400px;
+
+  > div.clost.btn {
+    margin-top: 15px;
+    cursor: pointer;
+  }
+
+  > div.desc {
+    margin-top: 25px;
+    color: #4000c7;
+  }
 `;
 
-export const TitleDiv = styled.div`
-  display: inline;
-  border-bottom: solid 5px #ffad4f;
-  margin: auto;
-  margin-top: 20px;
-  height: 30px;
-  width: 300px;
-  display: flex;
-  align-items: center;
-  padding-bottom: 25px;
+export const ModalInsideContainer = styled.div`
+
 `
 
-export const IdText = styled.div`
-  font-size: 18px;
+export const Title = styled.div`
+  font-size: 30px;
   color: #ffad4f;
-  margin-right: 200px;
-  margin-top: 20px ;
-  margin-bottom: 10px;
+  font-family: 'mikado';
 `;
 
-export const PwText = styled.div`
-  font-size: 18px;
+export const Input_Span = styled.div`
+  width: 84%;
+  height: 41px;
+  border: solid 1px #dadada;
+`
+
+export const TitleDiv = styled.div`
+  border-bottom: solid 5px #ffad4f;
+  font-family: 'Mikado';
+  font-size: 30px;
   color: #ffad4f;
-  margin-right: 220px;
-  margin-top: 10px ;
+  width: 300px;
+  padding-bottom: 5px;
+  text-align: center;
+`
+
+export const Id_text = styled.div`
+  font-size: 23px;
+  color: #ffad4f;
+  padding: 15px 0 2px;
+  font-family: 'Mikado';
+`;
+
+export const Pw_text = styled.div`
+  font-size: 25px;
+  color: #ffad4f;
+  padding: 15px 0 2px;
+  font-family: 'Mikado';
 `;
 
 export const LoginModalContainer = styled.div`
   height: 15rem;
-  text-align: center;
 `;
 
 export const LoginModalBtn = styled.button.attrs({type: 'button'})`
-margin-top: 95px;
-background: #fffffc;
-border: solid 5px #ffad4999;
-border-radius: 15px;
-height: 55px;
-cursor: pointer;
-transition: 300ms ease all;
-box-shadow: gray 2px 2px 2px;
-padding: 10px;
-min-width: 100px;
-text-align-last: center;
-font-family: 'Mikado';
-margin-right: 40px;
+  margin-top: 7.5em;
+  background: #fffffc;
+  border: solid 5px #ffad4999;
+  border-radius: 15px;
+  height: 55px;
+  cursor: pointer;
+  transition: 300ms ease all;
+  box-shadow: gray 2px 2px 2px;
+  padding: 10px;
+  min-width: 100px;
+  text-align-last: center;
+  font-family: 'Mikado';
+  margin-right: 40px;
 
 &:hover {
   box-shadow: gray 6px 6px 6px;
@@ -82,28 +107,14 @@ margin-right: 40px;
 
 export const LoginBtn = styled.button`
   background-color: #ffad4f;
-  font-size: 18px;
-  text-decoration: none;
-  border: solid 2px white;
+  font-size: 20px;
+  border: none;
   padding:12px;
   width: 300px;
   color: white;
   cursor: pointer;
-  box-align: right auto;
-  margin-bottom: 10px;
-  flex: 1 1 auto;
-`;
-
-export const SignUp = styled.button`
-  background-color: #ffad4f;
-  text-decoration: none;
-  border: solid 2px white;
-  padding: 20px;
-  color: white;
-  border-radius: 30px;
-  cursor: pointer;
-  box-align: left auto;
-  flex: 1 1 auto;
+  margin-top: 15px;
+  font-family: 'Mikado';
 `;
 
 export const LoginModalBackdrop = styled.div`
@@ -118,64 +129,43 @@ export const LoginModalBackdrop = styled.div`
   place-items: center;
 `;
 
-export const Id_Validation_Check = styled.div`
-  width: 300px;
-  margin-left: -40px;
-  padding: 5px;
+export const Validation_Check = styled.div`
   color:red;
+  padding-top: 5px;
 `
-export const Pw_Validation_Check = styled.div`
-  width: 300px;
-  margin-left: -28px;
-  padding: 5px;
-  color:red;
-`
+
 
 export const Id_Input = styled.input.attrs({ type: 'text' })`
-  margin-left: 3px;
-  width: 300px;
-  height:2em;
-  flex: 1 1 auto;
-  padding-left: 1px;
+  font-size: 17px;
+  width: 288px;
+  height: 2.2em;
+  outline: none;
+  cursor: pointer;
+  
+  &:focus {
+    outline: 1px solid #ffad4f;
+  }
 `
 export const Pw_Input = styled.input.attrs({ type: 'password' })`
-  margin-left: 30px;
-  width: 300px;
-  height: 2em;
-  padding-left: 1px;
-  margin-right: 20px;
-  margin: 10px 10px 10px 10px;
-  flex: 1 1 auto;
-`
+  width: 288px;
+  height: 2.2em;
+  outline: none;
+  padding: 0px 25px 0px 0px;
+  cursor:pointer;
 
+  &:focus {
+    outline: 1px solid #ffad4f;
+  }
+`
 export const CloseBtn = styled.span`
   border-radius: 50px;
-  border: solid 1px #ffad4999;
-  margin-left: 328px;
+  margin: 20px 0 0 300px;
   cursor: pointer;
   background-color: #ffad4f;
-  padding-bottom: 1px;
-  padding-left: 1px;
+
   &:hover {
   box-shadow: gray 2px 2px 2px;
-  }
+}
 `
 
-export const LoginModalView = styled.div.attrs((props) => ({
-  role: "dialog"
-}))`
-  border-radius: 10px;
-  background-color: white;
-  width: 350px;
-  height: 380px;
 
-  > div.clost.btn {
-    margin-top: 15px;
-    cursor: pointer;
-  }
-
-  > div.desc {
-    margin-top: 25px;
-    color: #4000c7;
-  }
-`;

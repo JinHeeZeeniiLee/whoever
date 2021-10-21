@@ -1,8 +1,6 @@
 import { useState } from "react";
 import {
     Title,
-    IdText,
-    PwText,
     TitleDiv,
     LoginModalContainer,
     LoginModalBtn,
@@ -11,9 +9,12 @@ import {
     LoginModalView,
     Id_Input,
     Pw_Input,
-    CloseBtn,
-    Id_Validation_Check,
-    Pw_Validation_Check
+    Id_text,
+    Pw_text,
+    Validation_Check,
+    Input_Span,
+    ModalInsideContainer,
+    CloseBtn
   } from "./Login.style";
   
 import SignUp from './SignUp'
@@ -25,7 +26,6 @@ const Login = () => {
   };
 
   return (
-    <div>
       <LoginModalContainer>
         <LoginModalBtn onClick={openModalHandler}>
           {isOpen === false ? "Login" : "Login"}
@@ -33,25 +33,25 @@ const Login = () => {
         {isOpen === true ? (
           <LoginModalBackdrop onClick={openModalHandler}>
             <LoginModalView onClick={(e)=> e.stopPropagation()}>
-              <CloseBtn onClick={openModalHandler}>
-              &times;
+            <CloseBtn onClick={openModalHandler}>
+                &times;
               </CloseBtn>
+              <ModalInsideContainer>
               <TitleDiv>
-              <Title>WHOEVER Login</Title>
+              WHOEVER Login
               </TitleDiv>
-              <IdText>Whoever ID</IdText>
+              <Id_text>Whoever ID</Id_text>
                 <Id_Input/> 
-                <Id_Validation_Check> 아이디가 잘못 되었습니다.</Id_Validation_Check>
-              <PwText>Password</PwText>
+              <Pw_text>Password</Pw_text>
                 <Pw_Input/>
-                <Pw_Validation_Check> 비밀번호가 일치하지 않습니다.</Pw_Validation_Check>
+                <Validation_Check> 일치하는 정보가 없습니다.</Validation_Check>
               <LoginBtn>Login</LoginBtn>
-                <SignUp / >
+                <SignUp />
+                </ModalInsideContainer>
             </LoginModalView>
           </LoginModalBackdrop>
         ) : null}
       </LoginModalContainer>
-    </div>
   );
 };
 
