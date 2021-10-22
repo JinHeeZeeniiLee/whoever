@@ -138,7 +138,7 @@ export const Validation_Check = styled.div`
 export const Id_Input = styled.input.attrs({ type: 'text' })`
   font-size: 17px;
   width: 288px;
-  height: 2.2em;
+  height: 2.1em;
   outline: none;
   cursor: pointer;
   

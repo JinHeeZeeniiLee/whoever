@@ -12,18 +12,6 @@ import Footer from './components/Footer';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
-  // const [userInfo, setUserInfo] = useState({});
-  // const [posts, setPosts] = useState(initialState.posts);
-  // const [categories, setCategories] = useState(initialState.categories);
-
-  // const handleChange = () => {
-  //   setPosts(initialState.posts);
-  //   setCategories(initialState.categories);
-  // };
-
-  // useEffect(() => {
-  //   handleChange();
-  // }, []);
 
   return (
     <BrowserRouter>
