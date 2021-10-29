@@ -7,6 +7,7 @@ import {
   PostTitleBox,
   OnePostTitleContainer,
   PostTitle,
+  ModifyPostButton,
   DeletePostButton,
   PostInfo,
   Post_Content,
@@ -46,6 +47,19 @@ const OnePost = ({ match, userInfo }) => {
     alert('작성자만 글을 삭제 할 수 있습니다');
   };
 
+  const changePostHandler = () => {
+    axios.update('http://localhost:4000/changepost', {
+      userId: userInfo.id,
+      postCreatedById: onePost.userId
+    });
+    if (userInfo.id === onePost.userId) {
+      alert('게시물이 삭제 되었습니다.');
+      history.goBack();
+      return;
+    }
+    alert('작성자만 글을 삭제 할 수 있습니다');
+  };
+
   const getCategoryTitle = (no) => {
     if (no === 1) return '여행';
     if (no === 2) return '술';
@@ -64,6 +78,7 @@ const OnePost = ({ match, userInfo }) => {
       </PostTitleBox>
       <OnePostTitleContainer>
         <Title_Post>{onePost.title}</Title_Post>
+        <ModifyPostButton>글수정</ModifyPostButton>
         <DeletePostButton onClick={deletePostHandler}>글삭제</DeletePostButton>
       </OnePostTitleContainer>
       <PostInfo>
