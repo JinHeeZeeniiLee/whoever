@@ -42,7 +42,8 @@ app.get('/main', controllers.getMainPosts.get);
 app.post('/listpage', controllers.getListPagePosts.post);
 app.post('/myposts', controllers.getMyPosts.post);
 app.post('/onepost', controllers.getOnePost.post);
-app.post('/searchpage', controllers.getSearchPosts.post);
+app.post('/searchpage', controllers.postSearchPosts.post);
+app.post('/searchmypost', controllers.postSearchMyPosts.post);
 app.put('/changepost', controllers.changepost.update);
 app.post('/deletepost', controllers.deletepost.post);
 app.post('/uploadpost', controllers.uploadpost.post);
@@ -54,7 +55,7 @@ app.use('/', express.static('uploads'));
 // comments 요청
 app.post('/getcomments', controllers.getComments.post);
 app.put('/changecomment', controllers.changecomment.update);
-app.delete('/deletecomment', controllers.deletecomment.delete);
+app.post('/deletecomment', controllers.deletecomment.post);
 app.post('/uploadcomment', controllers.uploadcomment.post);
 
 app.listen(PORT, () => console.log(`this server listening on ${PORT}`));

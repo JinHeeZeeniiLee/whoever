@@ -14,36 +14,30 @@ import {
   ListLike,
   ListdivBox,
   PagenumBox
-} from './searchPost.style';
+} from './searchMyPost.style';
 
-const Searchpost = ({ match }) => {
+const SearchMypost = ({ userInfo }) => {
   const location = useLocation();
   const queryData = QueryString.parse(location.search, {
     ignoreQueryPrefix: true
   });
   const keyword = queryData.keyword;
-  const categoryId = Number(match.params.no);
+  const userId = userInfo.id;
   const [posts, setPosts] = useState([]);
   const [allPostCount, setAllPostCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
   const categoryLength = allPostCount;
 
-  const getCategoryTitle = (no) => {
-    if (no === 1) return '여행';
-    if (no === 2) return '술';
-    if (no === 3) return '맛집';
-    if (no === 4) return '낚시';
-    if (no === 5) return '노래';
-    if (no === 6) return '코딩';
-  };
-
   useEffect(() => {
     axios
-      .post(`${process.env.REACT_APP_API_URL}/searchpage?page=${currentPage}`, {
-        keyword: keyword,
-        categoryId: categoryId
-      })
+      .post(
+        `${process.env.REACT_APP_API_URL}/searchmypost?page=${currentPage}`,
+        {
+          keyword: keyword,
+          userId: userInfo.id
+        }
+      )
       .then((res) => {
         setPosts(res.data.result);
         setAllPostCount(res.data.allPostCount);
@@ -52,10 +46,7 @@ const Searchpost = ({ match }) => {
 
   return (
     <SearchPostContainer>
-      <PostTitle
-        categoryId={categoryId}
-        categoryTitle={getCategoryTitle(categoryId)}
-      />
+      <PostTitle userId={userId} categoryTitle="검색된" />
 
       <ListmenuBox>
         <ListTitle>제목</ListTitle>
@@ -80,4 +71,4 @@ const Searchpost = ({ match }) => {
   );
 };
 
-export default Searchpost;
+export default SearchMypost;
