@@ -53,7 +53,6 @@ const OnePost = ({ match, userInfo }) => {
       postCreatedById: onePost.userId
     });
     if (userInfo.id === onePost.userId) {
-      alert('게시물이 삭제 되었습니다.');
       history.goBack();
       return;
     }
