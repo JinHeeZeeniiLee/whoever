@@ -7,6 +7,7 @@ import {
   PostTitleBox,
   OnePostTitleContainer,
   PostTitle,
+  ModifyPostButton,
   DeletePostButton,
   PostInfo,
   Post_Content,
@@ -49,6 +50,18 @@ const OnePost = ({ match, userInfo }) => {
     } else {
       alert('작성자만 글을 삭제 할 수 있습니다');
     }
+  };
+
+  const changePostHandler = () => {
+    axios.update('http://localhost:4000/changepost', {
+      userId: userInfo.id,
+      postCreatedById: onePost.userId
+    });
+    if (userInfo.id === onePost.userId) {
+      history.goBack();
+      return;
+    }
+    alert('작성자만 글을 삭제 할 수 있습니다');
   };
 
   const getCategoryTitle = (no) => {
